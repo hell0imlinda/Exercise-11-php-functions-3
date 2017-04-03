@@ -10,23 +10,23 @@ function capfirst($word) {
   return $word;
 }
 
-function makeCoffee($theName, $theDrinks, $theCoffee, $theQuantity) {
-  if ($theCoffee != 'nothing' && $theQuantity > 0) {
+function makedimsum($theName, $theDrinks, $thedimsum, $theQuantity) {
+  if ($thedimsum != 'nothing' && $theQuantity > 0) {
     $valid = true;
-    $price = $theDrinks[$theCoffee];
+    $price = $theDrinks[$thedimsum];
     $total = $price * $theQuantity;
     if ($theQuantity < 2) {
-      $title = titlecase($theCoffee).' for '.$theName;
+      $title = titlecase($thedimsum).' for '.$theName;
       $theTotal = 'Total: $'.number_format($total, 2);
-      $description = $theName.' ordered '.$theQuantity.' '.$theCoffee.'.';
+      $description = $theName.' ordered '.$theQuantity.' plate of '.$thedimsum.'.';
     } elseif ($theQuantity > 50) {
-      $title = 'No '.titlecase($theCoffee).' for '.$theName;
-      $theCoffee = 'rediculous';
-      $description = 'Don&rsquo;t be rediculous, '.$theName.', that&rsquo;s more coffee than any one barista can ever brew on time! Also, you don&rsquo;t have $'.number_format($total, 2).'!';
+      $title = 'No '.titlecase($thedimsum).' for '.$theName;
+      $thedimsum = 'ridiculous';
+      $description = 'Don&rsquo;t be ridiculous, '.$theName.', that&rsquo;s more dimsum than any one barista can ever brew on time! Also, you don&rsquo;t have $'.number_format($total, 2).'!';
     } else {
-      $title = titlecase($theCoffee).' for '.$theName;
+      $title = titlecase($thedimsum).' for '.$theName;
       $theTotal = 'Total: $'.number_format($total, 2);
-      $description = $theName.' ordered '.number_format($theQuantity).' '.$theCoffee.'s.';
+      $description = $theName.' ordered '.number_format($theQuantity).' plates of '.$thedimsum.'s.';
     }
   } else {
     $valid = false;
@@ -35,7 +35,7 @@ function makeCoffee($theName, $theDrinks, $theCoffee, $theQuantity) {
   if ($valid == true) {
     return('
       <div class="card my-4 mx-auto" style="width: 20rem;">
-        <img class="img-fluid" src="images/'.$theCoffee.'.jpg" alt="Card image cap">
+        <img class="img-fluid" src="images/'.$thedimsum.'.jpg" alt="Card image cap">
         <div class="card-block">
           <h2 class="h4 card-title">'.$title.'</h2>
           <p class="card-text">'.$description.'</p>
